@@ -1,0 +1,1 @@
+type Locator = tuple[str, str]
