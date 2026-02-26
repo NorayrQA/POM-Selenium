@@ -1,4 +1,4 @@
-from pages.orange.orange_page import OrangeLogin
+from pages.orange.login_page import OrangeLogin
 
 
 class TestLogin:
