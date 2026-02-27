@@ -1,0 +1,3 @@
+LOGIN_USERNAME = "standard_user"
+LOGIN_PASSWORD = "secret_sauce"
+SUCCESS_MESSAGE = 'Swag Labs'

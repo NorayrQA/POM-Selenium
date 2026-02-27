@@ -14,6 +14,15 @@ def get_chrome_driver():
     # Add any specific Chrome options here (e.g., headless mode, incognito, etc.)
     # options.headless = True  # Uncomment to run Chrome in headless mode
 
+    prefs = {
+        'credentials_enable_service': False,
+        'profile.password_manager_enabled': False,
+        'profile.password_manager_leak_detection': False,
+    }
+
+    options.add_experimental_option('prefs', prefs)
+    options.add_experimental_option('excludeSwitches', ['enable-automation'])
+
     try:
         # Initialize the Chrome WebDriver with options
         driver = webdriver.Chrome(options=options)

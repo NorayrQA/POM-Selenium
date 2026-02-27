@@ -1,7 +1,10 @@
 import pytest
 import allure
+from pages.saucedemo.login_page import LoginPage
+from utils import constans
 from utils.firefox_driver import get_firefox_driver
 from utils.chrome_driver import get_chrome_driver
+from selenium.webdriver.remote.webdriver import WebDriver
 
 
 @pytest.hookimpl(hookwrapper=True)
@@ -49,3 +52,19 @@ def driver(request):
     driver.maximize_window()  # Maximize window for better visibility
     yield driver
     driver.quit()  # Ensure the driver is quit after the test session
+
+
+@pytest.fixture
+def logged_in_driver(driver: WebDriver) -> WebDriver:
+    """
+    Ensures the session is authenticated.
+    If already logged in, skips login.
+    """
+    login_page = LoginPage(driver)
+    login_page.load_page()
+
+    if not login_page.is_logged_in(2):
+        login_page.login(constans.LOGIN_USERNAME, constans.LOGIN_PASSWORD)
+
+    return driver
+
