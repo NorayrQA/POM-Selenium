@@ -31,8 +31,6 @@ class LoginPage(BasePage):
         self.type_password(password)
         self.click_login_button()
 
-        assert self.get_success_message() == 'Swag Labs'
-
     def is_logged_in(self, timeout: int | None = None) -> bool:
         try:
             text = self.bot.element_text(self.SUCCESS_LOGIN).strip()

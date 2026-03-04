@@ -7,3 +7,6 @@ class TestLogin:
        login_page = LoginPage(driver)
        login_page.login(constans.LOGIN_USERNAME, constans.LOGIN_PASSWORD)
 
+       assert login_page.get_success_message() == 'Swag Labs'
+
+

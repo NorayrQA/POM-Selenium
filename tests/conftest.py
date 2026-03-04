@@ -67,4 +67,3 @@ def logged_in_driver(driver: WebDriver) -> WebDriver:
         login_page.login(constans.LOGIN_USERNAME, constans.LOGIN_PASSWORD)
 
     return driver
-
